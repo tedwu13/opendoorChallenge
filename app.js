@@ -1,10 +1,11 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+var csvtoJson = require("csvtojson");
 var DataStore = require("node-datastore");
 
 // used the csvtojson package
-var Converter = require("csvtojson").Converter;
+var Converter = csvtoJson.Converter;
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, '/index.html'));
