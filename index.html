@@ -2,11 +2,40 @@
 <html>
 <head>
     <title>Opendoor Engineering Challenge - Ted Wu</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-    The API is located at /listings. Here are some test links:<br>
-    <a href='/listings?min_price=100000&max_price=200000&min_bed=2&max_bed=2&min_bath=2&max_bath=2'>/listings?min_price=100000&max_price=200000&min_bed=2&max_bed=2&min_bath=2&max_bath=2</a><br>
-    <a href='/listings?min_bed=2&max_bath=2'>/listings?min_bed=2&max_bath=2</a><br>
-    <a href='/listings?max_bed=3&max_price=200000'>/listings?max_bed=3&max_price=200000</a><br>
+
+    <div class="container-fluid"> 
+        <h1> OpenDoor Engineering Challenge </h1>
+
+        <h2> Author: Ted Wu </h2>
+
+
+        <a href='/listings?min_price=100000&max_price=200000&min_bed=2&max_bed=2&min_bath=2&max_bath=2'>
+            Min Price: $100,000, Max Price: $200,000, Min Bed: 2, Max Bed: 2, Min Bath: 2, Max Bath: 2
+        </a><br>
+        <a href='/listings?min_price=100000&max_price=200000'>
+            Min Price: $100,000, Max Price: $200,000
+        </a><br>
+
+        <a href='/listings?min_bed=2&max_bed=2&min_bath=2&max_bath=2'>
+            Min Bed: 2, Max Bed: 2, Min Bath: 2, Max Bath: 2
+        </a><br>
+        <a href='/listings?min_bed=2&max_bath=2'>
+            Min Bed: 2, Max Bath: 2
+        </a><br>
+        <a href='/listings?max_bed=3&max_price=200000'>
+            Max Bed: 3, Max Price: $200,000
+        </a><br>
+    </div>
 </body>
 </html>

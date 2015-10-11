@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var path = require('path');
-var _ = require('underscore');
+var DataStore = require("node-datastore");
 
 // used the csvtojson package
 var Converter = require("csvtojson").Converter;
@@ -12,7 +12,7 @@ app.get('/', function (req, res) {
 
 app.get('/listings',  function (req, res) {
     //Create a new instance called openDoorConverter
-    var openDoorConverter = new Converter({});
+    var opendoor_converter = new Converter({});
 
     // Set up api requirements for min/max prices, beds, and baths
 
@@ -24,39 +24,66 @@ app.get('/listings',  function (req, res) {
     var maximum_bath = req.query.max_bath;
 
     //End_parsed will be emitted once parsing finished 
-    openDoorConverter.on("end_parsed", function (jsonObj) {
-        console.log("length of json obj", Object.keys(jsonObj).length);
+    opendoor_converter.on("end_parsed", function (jsonObj) {
 
         var filteredArray = jsonObj.filter(function(obj) {
 
-            if (_.isUndefined(minimum_price) && minimum_price > obj.price) {
+            if (minimum_price !== undefined && minimum_price > obj.price) {
                 return false;
             }
-            else if (_.isUndefined(maximum_price) && maximum_price < obj.price) {
+            else if (maximum_price !== undefined && maximum_price < obj.price) {
                 return false;
             }
-            else if(_.isUndefined(minimum_bed) && minimum_bed > obj.bedrooms) {
+            else if(minimum_bed !== undefined && minimum_bed > obj.bedrooms) {
                 return false;
             }
-            else if(_.isUndefined(maximum_bed) && maximum_bed < obj.bedrooms) {
+            else if(maximum_bed !== undefined && maximum_bed < obj.bedrooms) {
                 return false;   
             }
-            else if(_.isUndefined(minimum_bath) && minimum_bath > obj.bathrooms) {
+            else if(minimum_bath !== undefined&& minimum_bath > obj.bathrooms) {
                 return false;       
             }
-            else if(_.isUndefined(maximum_bath) && maximum_bath < obj.bathrooms) {
+            else if(maximum_bath !== undefined && maximum_bath < obj.bathrooms) {
                 return false;
             }
             else {
                 return true;
             }
         });
+        
+        console.log("length of filteredArray", Object.keys(filteredArray).length);
 
-        console.log("length of filtered array", Object.keys(filteredArray).length);
+        //Store the result with GeoJSON format
+        var geo_json = { 
+            "type": "FeatureCollection",
+            "features": []
+        }
+
+        for (var i = 0; i < filteredArray.length; i++) {
+            geo_json.features.push({
+                "type": "Feature",
+                "geometry": {"type": "Point", "coordinates":[filteredArray[i].lat, filteredArray[i].lng]},
+                "properties": {
+                    "id": filteredArray[i].id,
+                    "price": filteredArray[i].price,
+                    "street": filteredArray[i].street,
+                    "bedrooms": filteredArray[i].bedrooms,
+                    "bathrooms": filteredArray[i].bathrooms,
+                    "sq_ft": filteredArray[i].sq_ft
+                }
+            });
+        }
+
+
+        res.send(geo_json);
+
+        //use geoJSON store to store all the data of geo_json
+        var geoJsonStore = new DataStore(geo_json, {pageSize: 20});
+
     });
  
     //read from file 
-    require("fs").createReadStream("./listings.csv").pipe(openDoorConverter);
+    require("fs").createReadStream("./listings.csv").pipe(opendoor_converter);
 
 });
 
