@@ -1,0 +1,27 @@
+{
+  "name": "opendoorchallenge",
+  "version": "1.0.0",
+  "description": "Open door engineering challenge to write an API endpoint that returns filtered set of listings from listings.csv",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.13.3",
+    "node-datastore": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tedwu13/opendoorChallenge.git"
+  },
+  "author": "Ted Wu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tedwu13/opendoorChallenge/issues"
+  },
+  "homepage": "https://github.com/tedwu13/opendoorChallenge#readme",
+  "engines": {
+    "node": "v0.12.2"
+  }
+}
