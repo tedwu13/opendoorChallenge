@@ -3,8 +3,16 @@
   "version": "1.0.0",
   "description": "Open door Engineering challenge",
   "main": "app.js",
+  "dependencies": {
+    "csvtojson": "^0.4.3",
+    "express": "^4.13.3",
+    "node-datastore": "^1.0.1"
+  },
+  "engines": {
+    "node": "4.1.1"
+  },
   "scripts": {
-    "start": "node app.js",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -15,13 +23,5 @@
   "bugs": {
     "url": "https://github.com/tedwu13/opendoorChallenge/issues"
   },
-  "homepage": "https://github.com/tedwu13/opendoorChallenge#readme",
-  "dependencies": {
-    "csvtojson": "^0.4.3",
-    "express": "^4.13.3",
-    "node-datastore": "^1.0.1"
-  },
-  "engines": {
-    "node": "4.1.1"
-  }
+  "homepage": "https://github.com/tedwu13/opendoorChallenge#readme"
 }
