@@ -1,14 +1,40 @@
 {
-  "name": "opendoorchallenge",
+  "name": "opendoor",
   "version": "1.0.0",
-  "description": "Open door engineering challenge to write an API endpoint that returns filtered set of listings from listings.csv",
+  "description": "Open door Engineering challenge",
   "main": "app.js",
   "dependencies": {
+    "array-flatten": "^1.1.1",
+    "content-disposition": "^0.5.0",
+    "content-type": "^1.0.1",
+    "cookie": "^0.2.2",
+    "cookie-signature": "^1.0.6",
+    "csvtojson": "^0.4.3",
+    "debug": "^2.2.0",
+    "depd": "^1.1.0",
+    "destroy": "^1.0.3",
     "express": "^4.13.3",
+    "finalhandler": "^0.4.0",
+    "merge-descriptors": "^1.0.0",
+    "methods": "^1.1.1",
+    "ms": "^0.7.1",
     "node-datastore": "^1.0.1",
-    "csvtojson": "^0.4.3"
+    "parseurl": "^1.3.0",
+    "path-to-regexp": "^1.2.1",
+    "send": "^0.13.0",
+    "serve-static": "^1.10.0",
+    "type-is": "^1.6.9",
+    "underscore": "^1.8.3",
+    "utils-merge": "^1.0.0",
+    "vary": "^1.1.0",
+    "accepts": "*",
+    "async": "*"
+
   },
-  "devDependencies": {},
+  "engines": {
+    "node": "4.1.1",
+    "npm": "*"
+  },
   "scripts": {
     "start": "node app.js"
   },
@@ -21,8 +47,5 @@
   "bugs": {
     "url": "https://github.com/tedwu13/opendoorChallenge/issues"
   },
-  "homepage": "https://github.com/tedwu13/opendoorChallenge#readme",
-  "engines": {
-    "node": "v0.12.2"
-  }
+  "homepage": "https://github.com/tedwu13/opendoorChallenge#readme"
 }
