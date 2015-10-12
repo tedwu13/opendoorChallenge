@@ -6,6 +6,7 @@
   "dependencies": {
     "csvtojson": "^0.4.3",
     "express": "^4.13.3",
+    "merge-descriptors": "^1.0.0",
     "node-datastore": "^1.0.1"
   },
   "engines": {
