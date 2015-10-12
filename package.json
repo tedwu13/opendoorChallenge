@@ -20,5 +20,8 @@
     "csvtojson": "^0.4.3",
     "express": "^4.13.3",
     "node-datastore": "^1.0.1"
+  },
+  "engines": {
+    "node": "4.1.1"
   }
 }
