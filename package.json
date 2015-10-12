@@ -8,7 +8,11 @@
     "node-datastore": "^1.0.1",
     "csvtojson": "^0.4.3"
   },
-  "devDependencies": {},
+  // "devDependencies": {
+  //   "express": "^4.13.3",
+  //   "node-datastore": "^1.0.1",
+  //   "csvtojson": "^0.4.3"
+  // },
   "scripts": {
     "start": "npm start"
   },
